@@ -1,4 +1,7 @@
-.pio
+.pio/libdeps
+.pio/build/esp32dev/lib*
+.pio/build/esp32dev/src
+.pio/build/esp32dev/FrameworkArduino
 .vscode
 .DS_Store
 node_modules
