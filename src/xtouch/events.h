@@ -8,7 +8,7 @@ void xtouch_events_onResetDevice(lv_msg_t *m)
 
 void xtouch_events_onCloudSelect(lv_msg_t *m)
 {
-    // xtouch_cloud_pair_loop_exit = true;
+    //xtouch_cloud_pair_loop_exit = true;
 }
 
 void xtouch_events_onBackLight(lv_msg_t *m)
@@ -46,7 +46,7 @@ void xtouch_events_onTFTInvert(lv_msg_t *m)
     settings["tftInvert"] = value ? true : false;
     xtouch_filesystem_writeJson(SD, xtouch_paths_settings, settings);
     xTouchConfig.xTouchTFTInvert = value;
-    xtouch_screen_invertColors();
+    //xtouch_screen_invertColors();
 }
 
 void xtouch_events_onSettingsSave(lv_msg_t *m)

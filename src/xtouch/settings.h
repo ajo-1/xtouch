@@ -46,9 +46,9 @@ void xtouch_settings_loadSettings()
     xTouchConfig.xTouchAuxFanEnabled = settings.containsKey("auxFan") ? settings["auxFan"].as<bool>() : false;
     xTouchConfig.xTouchChamberFanEnabled = settings.containsKey("chamberFan") ? settings["chamberFan"].as<bool>() : false;
 
-    bool isTFTFlipped = xtouch_screen_getTFTFlip();
-    tft.setRotation(isTFTFlipped ? 3 : 1);
-    x_touch_touchScreen.setRotation(isTFTFlipped ? 3 : 1);
+    //bool isTFTFlipped = xtouch_screen_getTFTFlip();
+    //tft.setRotation(isTFTFlipped ? 3 : 1);
+    //x_touch_touchScreen.setRotation(isTFTFlipped ? 3 : 1);
     xtouch_screen_setBrightness(xTouchConfig.xTouchBacklightLevel);
 
     xtouch_screen_invertColors();

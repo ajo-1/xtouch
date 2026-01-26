@@ -63,12 +63,10 @@ DynamicJsonDocument xtouch_filesystem_readJson(fs::FS &fs, const char *filename,
         ConsoleError.println(filename);
         if (defaultsToArray)
         {
-            JsonArray array = doc.to<JsonArray>();
-            return doc;
+            return doc.createNestedArray();
         }
         else
         {
-            JsonObject object = doc.to<JsonObject>();
             return doc;
         }
     }
@@ -85,6 +83,5 @@ DynamicJsonDocument xtouch_filesystem_readJson(fs::FS &fs, const char *filename,
     configFile.close();
     return doc;
 }
-
 
 #endif
