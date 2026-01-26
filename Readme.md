@@ -1,3 +1,25 @@
+## Anpassung für den 5"" Bildschirm
+Mit Hilfe der beiden Zweige https://github.com/Adaaks/XTouch-5-Inch und https://github.com/xperiments-in/xtouch habe ich es geschafft mein Display JC8048W550 mit meinem P1S zu verbinden. Drucker ist im LAN Only Mode.
+
+xtouch.json:
+{
+  "ssid": "SSID",
+  "pwd": "WLAN_PW",
+  "timeout": 3000,
+  "coldboot": 5000,
+  "mqtt": {
+    "host": "192.168.178.136",
+    "accessCode": "33318952",
+    "serialNumber": "01P00C562800100",
+    "printerModel": "C12"
+  }
+}
+
+Viel Erfolg
+
+Axel
+
+
 # ![image](readme-assets/xtouch.png)
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/I3I8PSAYU)
