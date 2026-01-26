@@ -27,6 +27,7 @@ extern "C"
     void ui_event_comp_sidebarComponent_sidebarControlButton(lv_event_t *e);
     void ui_event_comp_sidebarComponent_sidebarNozzleButton(lv_event_t *e);
     void ui_event_comp_sidebarComponent_sidebarSettingsButton(lv_event_t *e);
+    void ui_event_comp_sidebarComponent_sidebaraccessCodeButton(lv_event_t *e);
     void ui_sidebarComponent_set_active(int index);
 #ifdef __cplusplus
 } /*extern "C"*/
