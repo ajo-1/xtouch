@@ -484,6 +484,12 @@ void xtouch_mqtt_processPushStatus(JsonDocument &incomingJson)
                 xtouch_ams_parse_status(ams_status);
             }
 
+            if (incomingJson["print"]["ams"].containsKey("tray_pre"))
+            {
+                bambuStatus.m_tray_pre = incomingJson["print"]["ams"]["tray_pre"].as<int>();
+            }
+            
+
             if (incomingJson["print"]["ams"].containsKey("ams"))
             {
 

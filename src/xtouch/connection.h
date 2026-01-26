@@ -2,6 +2,12 @@
 #define _XLCD_CONNECTION
 
 #include "mbedtls/base64.h"
+#include <time.h>
+#define MY_NTP_SERVER "de.pool.ntp.org"
+#define MY_TZ "CET-1CEST,M3.5.0,M10.5.0/3"
+time_t now;
+tm tmst;
+int time12hFormat=0;
 
 bool xtouch_wifi_setup()
 {

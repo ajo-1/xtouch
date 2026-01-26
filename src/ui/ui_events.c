@@ -27,6 +27,7 @@ void onHomeControllerPlayPause(lv_event_t *e)
     case XTOUCH_PRINT_STATUS_PAUSED:
         lv_msg_send(XTOUCH_COMMAND_RESUME, NULL);
         lv_obj_add_state(target, LV_STATE_DISABLED);
+        
         break;
     case XTOUCH_PRINT_STATUS_RUNNING:
     case XTOUCH_PRINT_STATUS_PREPARE:
@@ -91,6 +92,12 @@ void onSettingsResetDevice(lv_event_t *e)
     ui_confirmPanel_show(LV_SYMBOL_WARNING " REBOOT", onSettingsResetDeviceConfirm);
 }
 
+void onSettingsUnPairConfirm() { lv_msg_send(XTOUCH_SETTINGS_UNPAIR, NULL); }
+void onSettingsUnPair(lv_event_t *e)
+{
+    ui_confirmPanel_show(LV_SYMBOL_WARNING " Unlink Printer", onSettingsUnPairConfirm);
+}
+
 void onSettingsWOP(lv_event_t *e)
 {
     xTouchConfig.xTouchWakeOnPrint = !xTouchConfig.xTouchWakeOnPrint;
@@ -121,12 +128,6 @@ void onSettingsTFTFlipConfirm()
     lv_msg_send(XTOUCH_SETTINGS_TFT_FLIP, NULL);
 }
 
-void onSettingsOTA(lv_event_t *e)
-{
-    xTouchConfig.xTouchOTAEnabled = !xTouchConfig.xTouchOTAEnabled;
-    lv_msg_send(XTOUCH_SETTINGS_SAVE, NULL);
-}
-
 void onSettingsTFTFlip(lv_event_t *e)
 {
     ui_confirmPanel_show(LV_SYMBOL_WARNING " Flip LCD\n" LV_SYMBOL_REFRESH " Reboot", onSettingsTFTFlipConfirm);
@@ -147,6 +148,12 @@ void onNozzleDown(lv_event_t *e)
 void onFilamentUnloadConfirm() { lv_msg_send(XTOUCH_COMMAND_UNLOAD_FILAMENT, NULL); }
 void onFilamentUnload(lv_event_t *e)
 {
+
+    if (bambuStatus.m_tray_now<16){
+        lv_msg_send(XTOUCH_COMMAND_AMS_UNLOAD_SLOT, 0);
+        return;
+    }
+
     ui_confirmPanel_show("Please remove\nthe filament after\n" LV_SYMBOL_CUT, onFilamentUnloadConfirm);
 }
 
